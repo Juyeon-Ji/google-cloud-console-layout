@@ -1,24 +1,33 @@
-import logo from "./logo.svg";
 import "./App.css";
 
+import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+import Header from "./components/common/Header/index";
+import NavView from "./components/common/NavView/index";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Contents from "./routes/contents";
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {
+      display: "flex",
+    },
+  })
+);
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className={classes.root}>
+        <CssBaseline />
+        <Header />
+        <NavView />
+        <Switch>
+          <Route exact path="/" component={Contents} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
