@@ -30,7 +30,6 @@ function Clusters() {
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
-      <Typography paragraph>Contents</Typography>
       <p>{response ? JSON.stringify(response.data) : ""}</p>
     </main>
   );

@@ -14,6 +14,7 @@ import Configuration from "./routes/kubernetes/configuration";
 import Storage from "./routes/kubernetes/storage";
 import ObjectBrowser from "./routes/kubernetes/object_browser";
 import MigrateToContainers from "./routes/kubernetes/migrate_to_containers";
+import ServicesNIngress from "./routes/kubernetes/services_n_ingress";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme) =>
     },
   })
 );
+
 function App() {
   const classes = useStyles();
   return (
@@ -33,7 +35,10 @@ function App() {
         <Switch>
           <Route path="/kubernetes/clusters" component={Clusters} />
           <Route path="/kubernetes/workloads" component={Workloads} />
-          <Route path="/kubernetes/services_n_ingress" component={Clusters} />
+          <Route
+            path="/kubernetes/services_n_ingress"
+            component={ServicesNIngress}
+          />
           <Route path="/kubernetes/applications" component={Applications} />
           <Route path="/kubernetes/configuration" component={Configuration} />
           <Route exact path="/kubernetes/storage" component={Storage} />

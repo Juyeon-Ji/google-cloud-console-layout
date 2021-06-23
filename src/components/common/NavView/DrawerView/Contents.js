@@ -7,8 +7,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { drawerOpenState } from "../../../../recoil/atom/drawer/drawerOpen";
 import { selectedItemState } from "../../../../recoil/atom/drawer/selectedItem";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 const menu = [
   { id: "clusters", text: "Clusters", url: "/kubernetes/clusters" },
@@ -39,13 +39,25 @@ const menu = [
 function Contents() {
   const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
 
+  const useStyles = makeStyles((theme) =>
+    createStyles({
+      link: {
+        textDecoration: "none",
+      },
+      text: {
+        color: "black",
+      },
+    })
+  );
+
+  const classes = useStyles();
   return (
     <List>
       {menu.map(({ url, text, id }, index) => (
-        <Link to={url}>
+        <Link to={url} className={classes.link}>
           <ListItem
             button
-            key={text}
+            key={id}
             onClick={() => {
               setSelectedItem(text);
             }}
@@ -53,7 +65,7 @@ function Contents() {
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={text} className={classes.text} />
           </ListItem>
         </Link>
       ))}

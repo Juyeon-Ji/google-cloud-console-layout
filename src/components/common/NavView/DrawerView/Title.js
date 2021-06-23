@@ -2,6 +2,7 @@ import React from "react";
 
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
 
 const drawerWidth = 240;
 
@@ -17,11 +18,11 @@ const useStyles = makeStyles((theme) =>
 function Title() {
   const classes = useStyles();
   return (
-    <div className={classes.toolbar}>
+    <Toolbar>
       <Typography variant="h6" noWrap>
         Kubernetes Engine
       </Typography>
-    </div>
+    </Toolbar>
   );
 }
 export default Title;

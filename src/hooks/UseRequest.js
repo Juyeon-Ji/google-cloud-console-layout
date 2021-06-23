@@ -18,7 +18,6 @@ function UseRequest(url, postApiBody) {
           res = await axios.post(url, postApiBody);
         } else {
           res = await axios.get(url);
-          청;
         }
 
         setResponse(res); // response 설정
