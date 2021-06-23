@@ -2,18 +2,21 @@ import React from "react";
 
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { useRecoilState } from "recoil";
-import { drawerState } from "../../../recoil/atom/drawer";
+import { drawerOpenState } from "../../../recoil/atom/drawer/drawerOpen";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
+import { selectedItemState } from "../../../recoil/atom/drawer/selectedItem";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     appBar: {
+      color: "black",
+      backgroundColor: "white",
       [theme.breakpoints.up("sm")]: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
@@ -30,8 +33,8 @@ const useStyles = makeStyles((theme) =>
 
 function Header() {
   const classes = useStyles();
-  const [drawerOpen, setDrawerOpen] = useRecoilState(drawerState);
-
+  const [drawerOpen, setDrawerOpen] = useRecoilState(drawerOpenState);
+  const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -49,7 +52,7 @@ function Header() {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap>
-          Responsive drawer
+          {selectedItem}
         </Typography>
       </Toolbar>
     </AppBar>

@@ -2,7 +2,10 @@ import React from "react";
 
 import { createStyles, makeStyles, useTheme } from "@material-ui/core/styles";
 import { useRecoilState } from "recoil";
-import { drawerState } from "../../../recoil/atom/drawer";
+import {
+  drawerOpenState,
+  drawerState,
+} from "../../../recoil/atom/drawer/drawerOpen";
 
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
@@ -39,7 +42,7 @@ const useStyles = makeStyles((theme) =>
 
 function NavBar(props) {
   const classes = useStyles();
-  const [drawerOpen, setDrawerOpen] = useRecoilState(drawerState);
+  const [drawerOpen, setDrawerOpen] = useRecoilState(drawerOpenState);
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);

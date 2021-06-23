@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-function Contents() {
+function Workloads() {
   const classes = useStyles();
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
-      <Typography paragraph>Contents</Typography>
+      <Typography paragraph>Workloads</Typography>
     </main>
   );
 }
-export default Contents;
+export default Workloads;
