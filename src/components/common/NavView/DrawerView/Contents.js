@@ -58,6 +58,7 @@ function Contents() {
           <ListItem
             button
             key={id}
+            selected={selectedItem === text}
             onClick={() => {
               setSelectedItem(text);
             }}
