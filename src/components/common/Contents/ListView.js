@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 function Row(postId, id, name, email, body) {
   return (
     <TableRow key={postId}>
-      <TableCell component="th" scope="row">
+      <TableCell component="th" align="middle" scope="row">
         {postId}
       </TableCell>
       <TableCell align="middle">{id}</TableCell>
