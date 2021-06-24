@@ -2,10 +2,7 @@ import React from "react";
 
 import { createStyles, makeStyles, useTheme } from "@material-ui/core/styles";
 import { useRecoilState } from "recoil";
-import {
-  drawerOpenState,
-  drawerState,
-} from "../../../recoil/atom/drawer/drawerOpen";
+import { drawerOpenState } from "../../../recoil/atom/drawer/drawerOpen";
 
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
@@ -15,18 +12,6 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    appBar: {
-      [theme.breakpoints.up("sm")]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-      },
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up("sm")]: {
-        display: "none",
-      },
-    },
     drawer: {
       [theme.breakpoints.up("sm")]: {
         width: drawerWidth,

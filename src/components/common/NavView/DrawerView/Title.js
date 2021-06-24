@@ -1,28 +1,17 @@
 import React from "react";
 
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 
-const drawerWidth = 240;
+import KubernetesIcon from "@material-ui/icons/Widgets";
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    toolbar: {
-      minHeight: "64px",
-      textAlign: "center",
-    },
-  })
-);
-
-function Title() {
-  const classes = useStyles();
+export default function Title() {
   return (
     <Toolbar>
-      <Typography variant="h6" noWrap>
-        Kubernetes Engine
+      <KubernetesIcon />
+      <Typography variant="h7" noWrap>
+        {"Kubernetes Engine"}
       </Typography>
     </Toolbar>
   );
 }
-export default Title;

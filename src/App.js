@@ -3,7 +3,7 @@ import "./App.css";
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
-import Header from "./components/common/Header/index";
+import Header from "./components/common/Header";
 import NavView from "./components/common/NavView/index";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -15,6 +15,7 @@ import Storage from "./routes/kubernetes/storage";
 import ObjectBrowser from "./routes/kubernetes/object_browser";
 import MigrateToContainers from "./routes/kubernetes/migrate_to_containers";
 import ServicesNIngress from "./routes/kubernetes/services_n_ingress";
+import * as PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -23,6 +24,16 @@ const useStyles = makeStyles((theme) =>
     },
   })
 );
+
+function Redirect(props) {
+  return null;
+}
+
+Redirect.propTypes = {
+  path: PropTypes.string,
+  exact: PropTypes.bool,
+  to: PropTypes.string,
+};
 
 function App() {
   const classes = useStyles();
@@ -47,6 +58,7 @@ function App() {
             path="/kubernetes/migrate_to_containers"
             component={MigrateToContainers}
           />
+          <Redirect exact path="/" to="/kubernetes/clusters" />
         </Switch>
       </div>
     </BrowserRouter>

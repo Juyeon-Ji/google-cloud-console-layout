@@ -2,13 +2,13 @@ import React from "react";
 
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { useRecoilState } from "recoil";
-import { drawerOpenState } from "../../../recoil/atom/drawer/drawerOpen";
+import { drawerOpenState } from "../../recoil/atom/drawer/drawerOpen";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
-import { selectedItemState } from "../../../recoil/atom/drawer/selectedItem";
+import { selectedItemState } from "../../recoil/atom/drawer/selectedItem";
 
 const drawerWidth = 240;
 
@@ -40,7 +40,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="fixed" className={classes.appBar}>
+    <AppBar className={classes.appBar}>
       <Toolbar>
         <IconButton
           color="inherit"

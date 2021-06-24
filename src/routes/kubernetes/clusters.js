@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import useRequest from "../../hooks/UseRequest";
+import ListView from "../../components/common/Contents/ListView";
 
 const drawerWidth = 240;
 
@@ -22,15 +23,14 @@ function Clusters() {
   const classes = useStyles();
 
   const [response, loading, error] = useRequest(
-    "https://jsonplaceholder.typicode.com/todos/1"
+    "https://jsonplaceholder.typicode.com/posts/1/comments"
   );
 
   console.log(response);
 
   return (
     <main className={classes.content}>
-      <div className={classes.toolbar} />
-      <p>{response ? JSON.stringify(response.data) : ""}</p>
+      {response ? <ListView dataList={response.data} /> : <></>}
     </main>
   );
 }
