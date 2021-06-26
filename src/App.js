@@ -15,6 +15,7 @@ import Storage from "./routes/kubernetes/storage";
 import ObjectBrowser from "./routes/kubernetes/object_browser";
 import MigrateToContainers from "./routes/kubernetes/migrate_to_containers";
 import ServicesNIngress from "./routes/kubernetes/services_n_ingress";
+import { RecoilRoot } from "recoil";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -27,30 +28,35 @@ const useStyles = makeStyles((theme) =>
 function App() {
   const classes = useStyles();
   return (
-    <BrowserRouter>
-      <div className={classes.root}>
-        <CssBaseline />
-        <Header />
-        <NavView />
-        <Switch>
-          <Route path="/kubernetes/clusters" component={Clusters} />
-          <Route path="/kubernetes/workloads" component={Workloads} />
-          <Route
-            path="/kubernetes/services_n_ingress"
-            component={ServicesNIngress}
-          />
-          <Route path="/kubernetes/applications" component={Applications} />
-          <Route path="/kubernetes/configuration" component={Configuration} />
-          <Route exact path="/kubernetes/storage" component={Storage} />
-          <Route path="/kubernetes/object_browser" component={ObjectBrowser} />
-          <Route
-            path="/kubernetes/migrate_to_containers"
-            component={MigrateToContainers}
-          />
-          <Redirect exact path="/" to="/kubernetes/clusters" />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <RecoilRoot>
+      <BrowserRouter>
+        <div className={classes.root}>
+          <CssBaseline />
+          <Header />
+          <NavView />
+          <Switch>
+            <Route path="/kubernetes/clusters" component={Clusters} />
+            <Route path="/kubernetes/workloads" component={Workloads} />
+            <Route
+              path="/kubernetes/services_n_ingress"
+              component={ServicesNIngress}
+            />
+            <Route path="/kubernetes/applications" component={Applications} />
+            <Route path="/kubernetes/configuration" component={Configuration} />
+            <Route exact path="/kubernetes/storage" component={Storage} />
+            <Route
+              path="/kubernetes/object_browser"
+              component={ObjectBrowser}
+            />
+            <Route
+              path="/kubernetes/migrate_to_containers"
+              component={MigrateToContainers}
+            />
+            <Redirect exact path="/" to="/kubernetes/clusters" />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 
