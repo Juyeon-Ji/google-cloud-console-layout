@@ -9,9 +9,7 @@ export default function Title() {
   return (
     <Toolbar>
       <KubernetesIcon />
-      <Typography variant="h7" noWrap>
-        {"Kubernetes Engine"}
-      </Typography>
+      <Typography noWrap>{"Kubernetes Engine"}</Typography>
     </Toolbar>
   );
 }

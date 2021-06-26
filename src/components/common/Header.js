@@ -12,8 +12,9 @@ import { selectedItemState } from "../../recoil/atom/drawer/selectedItem";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
+const useStyles = makeStyles(function (theme) {
+  theme.breakpoints.values.sm = 768;
+  return createStyles({
     appBar: {
       color: "black",
       backgroundColor: "white",
@@ -28,8 +29,8 @@ const useStyles = makeStyles((theme) =>
         display: "none",
       },
     },
-  })
-);
+  });
+});
 
 function Header() {
   const classes = useStyles();
@@ -40,7 +41,7 @@ function Header() {
   };
 
   return (
-    <AppBar className={classes.appBar}>
+    <AppBar elevation={1} className={classes.appBar}>
       <Toolbar>
         <IconButton
           color="inherit"
@@ -51,9 +52,7 @@ function Header() {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap>
-          {selectedItem}
-        </Typography>
+        <Typography noWrap>{selectedItem}</Typography>
       </Toolbar>
     </AppBar>
   );

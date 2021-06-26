@@ -10,8 +10,9 @@ import DrawerView from "../NavView/DrawerView";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
+const useStyles = makeStyles(function (theme) {
+  theme.breakpoints.values.sm = 768;
+  return createStyles({
     drawer: {
       [theme.breakpoints.up("sm")]: {
         width: drawerWidth,
@@ -22,8 +23,8 @@ const useStyles = makeStyles((theme) =>
     drawerPaper: {
       width: drawerWidth,
     },
-  })
-);
+  });
+});
 
 function NavBar(props) {
   const classes = useStyles();

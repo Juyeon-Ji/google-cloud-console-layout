@@ -21,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
 
 function Row(postId, id, name, email, body) {
   return (
-    <TableRow key={postId}>
-      <TableCell component="th" align="middle" scope="row">
+    <TableRow key={"row_" + id}>
+      <TableCell component="th" align="center" scope="row">
         {postId}
       </TableCell>
-      <TableCell align="middle">{id}</TableCell>
+      <TableCell align="center">{id}</TableCell>
       <TableCell align="left">{name}</TableCell>
       <TableCell align="left">{email}</TableCell>
       <TableCell align="left">{body}</TableCell>

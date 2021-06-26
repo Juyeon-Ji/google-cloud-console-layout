@@ -54,10 +54,10 @@ function Contents() {
   return (
     <List>
       {menu.map(({ url, text, id }, index) => (
-        <Link to={url} className={classes.link}>
+        <Link to={url} key={"link_" + id + index} className={classes.link}>
           <ListItem
             button
-            key={id}
+            key={"list_" + id + index}
             selected={selectedItem === text}
             onClick={() => {
               setSelectedItem(text);
