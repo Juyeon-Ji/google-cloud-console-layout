@@ -9,6 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
 import { selectedItemState } from "../../recoil/atom/drawer/selectedItem";
+import Divider from "@material-ui/core/Divider";
 
 const drawerWidth = 240;
 
@@ -16,8 +17,7 @@ const useStyles = makeStyles(function (theme) {
   theme.breakpoints.values.sm = 768;
   return createStyles({
     appBar: {
-      color: "black",
-      backgroundColor: "white",
+      borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
       [theme.breakpoints.up("sm")]: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
@@ -41,20 +41,23 @@ function Header() {
   };
 
   return (
-    <AppBar elevation={1} className={classes.appBar}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography noWrap>{selectedItem}</Typography>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar elevation={0} color={"inherit"} className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography noWrap>{selectedItem}</Typography>
+        </Toolbar>
+      </AppBar>
+      <Divider color={"black"} />
+    </>
   );
 }
 export default Header;

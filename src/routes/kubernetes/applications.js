@@ -14,10 +14,10 @@ const useStyles = makeStyles((theme) =>
 
 export default function Applications() {
   const classes = useStyles();
-
   const [response, loading, error] = useRequest(
     "https://jsonplaceholder.typicode.com/posts/4/comments"
   );
+
   return (
     <main className={classes.content}>
       {response ? <ListView dataList={response.data} /> : <></>}

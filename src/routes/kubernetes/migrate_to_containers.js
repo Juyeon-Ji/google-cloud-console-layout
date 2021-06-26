@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) =>
 
 export default function MigrateToContainers() {
   const classes = useStyles();
-
   const [response, loading, error] = useRequest(
     "https://jsonplaceholder.typicode.com/posts/8/comments"
   );
+
   return (
     <main className={classes.content}>
       {response ? <ListView dataList={response.data} /> : <></>}

@@ -1,7 +1,7 @@
 import Divider from "@material-ui/core/Divider";
 import React from "react";
 import Title from "./Title";
-import Contents from "./Contents";
+import Contents from "./Menu";
 
 function DrawerView() {
   return (

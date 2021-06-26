@@ -22,9 +22,7 @@ const useStyles = makeStyles((theme) => ({
 function Row(postId, id, name, email, body) {
   return (
     <TableRow key={"row_" + id}>
-      <TableCell component="th" align="center" scope="row">
-        {postId}
-      </TableCell>
+      <TableCell align="center">{postId}</TableCell>
       <TableCell align="center">{id}</TableCell>
       <TableCell align="left">{name}</TableCell>
       <TableCell align="left">{email}</TableCell>
@@ -41,9 +39,9 @@ export default function ListView(props) {
       <div className={classes.appBarSpacer} />
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
-          <TableHead>{Row("postId", "id", "name", "email", "body")}</TableHead>
+          <TableHead>{Row("POST ID", "ID", "NAME", "EMAIL", "BODY")}</TableHead>
           <TableBody>
-            {dataList.map(({ postId, id, name, email, body }, index) =>
+            {dataList.map(({ postId, id, name, email, body }) =>
               Row(postId, id, name, email, body)
             )}
           </TableBody>

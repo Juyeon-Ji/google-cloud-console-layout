@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) =>
 
 export default function Clusters() {
   const classes = useStyles();
-
   const [response, loading, error] = useRequest(
     "https://jsonplaceholder.typicode.com/posts/1/comments"
   );

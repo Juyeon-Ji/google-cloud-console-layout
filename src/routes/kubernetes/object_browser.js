@@ -17,6 +17,7 @@ export default function ObjectBrowser() {
   const [response, loading, error] = useRequest(
     "https://jsonplaceholder.typicode.com/posts/7/comments"
   );
+
   return (
     <main className={classes.content}>
       {response ? <ListView dataList={response.data} /> : <></>}

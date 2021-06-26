@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) =>
 
 export default function Workloads() {
   const classes = useStyles();
-
   const [response, loading, error] = useRequest(
     "https://jsonplaceholder.typicode.com/posts/2/comments"
   );

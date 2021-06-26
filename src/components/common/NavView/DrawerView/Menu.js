@@ -1,8 +1,5 @@
 import React from "react";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
 import { Link } from "react-router-dom";
@@ -11,20 +8,36 @@ import { selectedItemState } from "../../../../recoil/atom/drawer/selectedItem";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 const menu = [
-  { id: "clusters", text: "Clusters", url: "/kubernetes/clusters" },
-  { id: "workloads", text: "Workloads", url: "/kubernetes/workloads" },
+  {
+    id: "clusters",
+    text: "Clusters",
+    url: "/kubernetes/clusters",
+  },
+  {
+    id: "workloads",
+    text: "Workloads",
+    url: "/kubernetes/workloads",
+  },
   {
     id: "services_n_ingress",
     text: "Services & Ingress",
     url: "/kubernetes/services_n_ingress",
   },
-  { id: "applications", text: "Applications", url: "/kubernetes/applications" },
+  {
+    id: "applications",
+    text: "Applications",
+    url: "/kubernetes/applications",
+  },
   {
     id: "configuration",
     text: "Configuration",
     url: "/kubernetes/configuration",
   },
-  { id: "storage", text: "Storage", url: "/kubernetes/storage" },
+  {
+    id: "storage",
+    text: "Storage",
+    url: "/kubernetes/storage",
+  },
   {
     id: "object_browser",
     text: "Object Browser",
@@ -53,7 +66,7 @@ function Contents() {
   const classes = useStyles();
   return (
     <List>
-      {menu.map(({ url, text, id }, index) => (
+      {menu.map(({ icon, url, text, id }, index) => (
         <Link to={url} key={"link_" + id + index} className={classes.link}>
           <ListItem
             button
@@ -63,9 +76,6 @@ function Contents() {
               setSelectedItem(text);
             }}
           >
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
             <ListItemText primary={text} className={classes.text} />
           </ListItem>
         </Link>

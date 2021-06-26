@@ -17,6 +17,7 @@ export default function ServicesNIngress() {
   const [response, loading, error] = useRequest(
     "https://jsonplaceholder.typicode.com/posts/3/comments"
   );
+
   return (
     <main className={classes.content}>
       {response ? <ListView dataList={response.data} /> : <></>}

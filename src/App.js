@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Header from "./components/common/Header";
 import NavView from "./components/common/NavView/index";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Clusters from "./routes/kubernetes/clusters";
 import Workloads from "./routes/kubernetes/workloads";
@@ -15,7 +15,6 @@ import Storage from "./routes/kubernetes/storage";
 import ObjectBrowser from "./routes/kubernetes/object_browser";
 import MigrateToContainers from "./routes/kubernetes/migrate_to_containers";
 import ServicesNIngress from "./routes/kubernetes/services_n_ingress";
-import * as PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -24,16 +23,6 @@ const useStyles = makeStyles((theme) =>
     },
   })
 );
-
-function Redirect(props) {
-  return null;
-}
-
-Redirect.propTypes = {
-  path: PropTypes.string,
-  exact: PropTypes.bool,
-  to: PropTypes.string,
-};
 
 function App() {
   const classes = useStyles();
