@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# 구현 내용
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 요구사항 1 **[구현 완료]**
 
-## Available Scripts
+  - 맨 위 파란색 영역은 제외 하였습니다.
 
-In the project directory, you can run:
+- 요구사항 2 **[구현 완료]**
 
-### `yarn start`
+  - 4번 영역 페이지는 네트워크 통신을 이용하여 획득한 데이터를 출력하도록 하였습니다.
+  - mock API로 [JSON Placeholder](https://jsonplaceholder.typicode.com/) 를 사용하였습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 요구사항 3 **[구현 완료]**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  - 1,2,3 영역은 각 화면에서 재사용될 수 있도록 구현하였습니다.
+  - 선택된 메뉴에 따라 보여지는 내용이 달라질 수 있도록 컴포넌트 형태로 구현하였습니다.
 
-### `yarn test`
+- 요구사항 4 **[구현 완료]**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - 브라우저 넓이가 768px 이하로 축소된 순간 부터는 좌측 메뉴가 사라지도록 구현하였습니다.
 
-### `yarn build`
+- 요구사항 5 **[구현 완료]**
+  - 재사용되는 컴포넌트와 각 페이지를 구분할 수 있도록 프로젝트의 디렉토리 구조를 정리하였습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 사용 기술
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React : 17.0.2
+- axios : 0.21.1
+- react-router-dom : 5.2.0
+- recoil : 0.3.1
+- eslint
+- prettier
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 프로젝트 디렉토리 구조
 
-### `yarn eject`
+```bash
+google-cloud-console-layout/
+    └─ node_modules/
+    └─ public/
+    └─ src/
+        └─ components/ # 재사용 되는 컴포넌트 입니다.
+            └─ common/ # 공통으로 사용되는 컴포넌트 입니다.
+                └─ Header.js # 상단 헤더 영역 입니다. [2번 영역]
+                └─ Contents/ # 컨텐츠가 표시되는 화면에 사용되는 컴포넌트 입니다.
+                    └─ ListView.js
+                └─ NavView/ # 좌측 메뉴에 사용되는 컴포넌트 입니다.
+                    └─ index.js
+                    └─ DrawerView/
+                        └─ index.js
+                        └─ Menu.js # [3번 영역]
+                        └─ Title.js # [1번 영역]
+        └─ hooks/
+            └─ UseRequest.js # API 요청 시 사용되는 Custom hook 입니다.
+        └─ recoil/
+            └─ atom/ # 상태를 관리합니다.
+                └─ drawer/ # 좌측 메뉴에 관련된 상태입니다.
+                    └─ drawerOpen.js
+                    └─ selectedItem.js
+        └─ routes/ # 라우팅 되는 페이지 폴더 입니다. [4번 영역]
+                └─ kubernetes/
+                    └─ applications.js
+                    └─ configuration.js
+                    └─ object_browser.js
+                    └─ storage.js
+                    └─ migrate_to_containers.js
+                    └─ services_n_ingress.js
+                    └─ workloads.js
+        └─ index.js
+        └─ App.js
+    └─ .eslintrc.json # lint 설정 파일 입니다.
+    └─ prettier.json # prettier 설정 파일 입니다.
+    └─ package.json
+    └─ README.md
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 프로젝트 실행 방법
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+$ npm install
+$ npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+http://localhost:3000 으로 접속합니다.
