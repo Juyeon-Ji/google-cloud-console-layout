@@ -1,11 +1,14 @@
 import React from "react";
+
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
+
 import { selectedItemState } from "../../../../recoil/atom/drawer/selectedItem";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 const menu = [
   {
@@ -49,7 +52,7 @@ const menu = [
     url: "/kubernetes/migrate_to_containers",
   },
 ];
-function Contents() {
+function Menu() {
   const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
 
   const useStyles = makeStyles((theme) =>
@@ -83,4 +86,4 @@ function Contents() {
     </List>
   );
 }
-export default Contents;
+export default Menu;

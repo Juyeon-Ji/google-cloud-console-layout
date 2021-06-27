@@ -1,12 +1,12 @@
 import React from "react";
 
 import { createStyles, makeStyles, useTheme } from "@material-ui/core/styles";
-import { useRecoilState } from "recoil";
-import { drawerOpenState } from "../../../recoil/atom/drawer/drawerOpen";
-
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
-import DrawerView from "../NavView/DrawerView";
+
+import { useRecoilState } from "recoil";
+import DrawerView from "./DrawerView";
+import { drawerOpenState } from "../../../recoil/atom/drawer/drawerOpen";
 
 const drawerWidth = 240;
 
@@ -19,7 +19,6 @@ const useStyles = makeStyles(function (theme) {
         flexShrink: 0,
       },
     },
-    toolbar: theme.mixins.toolbar,
     drawerPaper: {
       width: drawerWidth,
     },

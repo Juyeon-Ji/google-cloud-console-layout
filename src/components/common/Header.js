@@ -1,7 +1,7 @@
 import React from "react";
 
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { drawerOpenState } from "../../recoil/atom/drawer/drawerOpen";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -35,7 +35,7 @@ const useStyles = makeStyles(function (theme) {
 function Header() {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useRecoilState(drawerOpenState);
-  const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
+  const selectedItem = useRecoilValue(selectedItemState);
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
