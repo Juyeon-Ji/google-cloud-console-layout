@@ -25,7 +25,7 @@ const useStyles = makeStyles(function (theme) {
   });
 });
 
-function NavView(props) {
+export default function NavView(props) {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useRecoilState(drawerOpenState);
 
@@ -71,4 +71,3 @@ function NavView(props) {
     </nav>
   );
 }
-export default NavView;

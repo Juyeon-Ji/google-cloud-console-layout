@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function UseRequest(url) {
+export default function UseRequest(url) {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
@@ -24,5 +24,3 @@ function UseRequest(url) {
 
   return [response, loading, error];
 }
-
-export default UseRequest;

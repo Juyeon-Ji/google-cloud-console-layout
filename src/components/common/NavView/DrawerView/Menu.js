@@ -52,7 +52,7 @@ const menu = [
     url: "/kubernetes/migrate_to_containers",
   },
 ];
-function Menu() {
+export default function Menu() {
   const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
 
   const useStyles = makeStyles((theme) =>
@@ -86,4 +86,3 @@ function Menu() {
     </List>
   );
 }
-export default Menu;

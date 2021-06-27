@@ -32,7 +32,7 @@ const useStyles = makeStyles(function (theme) {
   });
 });
 
-function Header() {
+export default function Header() {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useRecoilState(drawerOpenState);
   const selectedItem = useRecoilValue(selectedItemState);
@@ -60,4 +60,3 @@ function Header() {
     </>
   );
 }
-export default Header;

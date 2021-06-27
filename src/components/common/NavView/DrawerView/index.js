@@ -4,7 +4,7 @@ import React from "react";
 import Title from "./Title";
 import Menu from "./Menu";
 
-function DrawerView() {
+export default function DrawerView() {
   return (
     <div>
       <Title />
@@ -13,4 +13,3 @@ function DrawerView() {
     </div>
   );
 }
-export default DrawerView;

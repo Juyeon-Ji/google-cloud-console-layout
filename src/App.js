@@ -1,5 +1,3 @@
-import "./App.css";
-
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
